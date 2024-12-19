@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Capteurs</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="capteurs">Capteurs</h1>
+<h2 id="passifs">Passifs</h2>
+<p>Un capteur passif ne génère pas en lui-même de signal électrique.
+Cette définition inclut des capteurs qui ne sont pas nécessairement électroniques</p>
+<p>Dans leurs caractéristiques on note :
+- Absence d'énergie active : pas d'apport énergétique externe
+- Pas nécessairement électronique : capteur mécanique par exemple ou d'une autre nature (thermomètre)</p>
+<h2 id="actifs">Actifs</h2>
+<p>Le capteur actif nécessite une alimentation pour fonctionner. Il génère un signal mesurable qui est souvent amplifié, conditionné ou traité avant de fournir une sortie. Ce type de capteur peut transformer l’énergie externe en une forme de signal, souvent plus puissant, ce qui lui permet de produire une réponse plus précise ou plus forte que les capteurs passifs.</p>
+<p>Dans leurs caractéristiques :
+- Alim externe nécessaire
+- Amplificaton ou traitement interne (signal souvent amplifié ou traité dans le capteur)</p>
+<h2 id="actionneurs">Actionneurs</h2>
+<p>A l'inverse, l'actionneur permet de traduire une énergie électrique (ou autre) en une action mécanique ou physique.
+Le signal d'entrée est un <strong>signal de commande</strong>. C'est le cas de moteurs (servomoteurs, moteurs DC, cylindres hydrauliques, actionneurs piezoélectriques comme les têtes de lectures).</p>
+<h1 id="étude-des-composants-et-capteurs">Étude des composants et capteurs</h1>
+<h2 id="sensoriels">Sensoriels</h2>
+<ul>
+<li>
+<p>Capteurs de lumière</p>
+<ul>
+<li>Photorésistance (LDR)
+<ul>
+<li>Principe : conductivité de lumière, la résistance diminue à mesure que l'intensité lumineuse augmente</li>
+<li>Application : Vactrol par exemple</li>
+</ul>
+</li>
+<li>Photodiode &amp; phototransistors : convertit la lumière en courant ou en voltage
+<ul>
+<li>Application : détection de lumière</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de températures</p>
+<ul>
+<li>Thermistance : la résistance change avec la température
+<ul>
+<li>Principe: la température fait varier le coefficient de résistance</li>
+<li>Application : Protection de la surchauffe dans des amplis, compensation de température (en captant la température d'un autre composant, cette résistance permet d'ajuster le voltage)</li>
+</ul>
+</li>
+<li>Résistance à détection de température (RTD - resistance temperature detector) : plus précis et stable</li>
+<li>Thermocouple : génère un voltage proportionnel à la différence de température
+<ul>
+<li>application : détection de haute température dans des applications industrielles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de proximité et de mouvement</p>
+<ul>
+<li>Capteurs capacitifs : détecte la variation de capacitance causée par la proximité d'objets
+<ul>
+<li>Application : contrôle gestuel</li>
+</ul>
+</li>
+<li>Capteurs ultrasons : émet et détect des ondes ultrasons pour mesurer la distance
+<ul>
+<li>Application : robotique, radar</li>
+</ul>
+</li>
+<li>Capteurs Infrarouge: 	Détecte les radiations infrarouge pour la proximité ou le mouvement
+<ul>
+<li>Application : déclenchement sans contact</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de son</p>
+<ul>
+<li>Microphone
+<ul>
+<li>Dynamique</li>
+<li>Statique</li>
+<li>Electret</li>
+</ul>
+</li>
+<li>Capteur Piezoelectric  : détecte les vibrations du son via un effet piezzoélectrique</li>
+</ul>
+</li>
+<li>
+<p>Capteurs chimiques :</p>
+<ul>
+<li>Capteur de Gaz : détecte des gaz spécifiques comme le CO2, méthane, oxygène (...)
+<ul>
+<li>Application : analyse de respiration, qualité de l'air, détecteur de fumée (...)</li>
+</ul>
+</li>
+<li>Capteur de pH : mesure l'acidité, l'alcalinité dans des solutions
+<ul>
+<li>qualité de l'eau</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs magnétiques</p>
+<ul>
+<li>Hall effect sensors : mesure l'intensité des champs magnétiques
+<ul>
+<li>application : position de la bande magnétique, encodeurs rotatifs(...)</li>
+</ul>
+</li>
+<li>Pickup</li>
+</ul>
+</li>
+</ul>
+<h2 id="potentiométriques">Potentiométriques</h2>
+<p>A potentiometric sensor is a type of position sensor that measures displacement, movement, or position by changing its electrical resistance in response to physical input. The sensor operates on the voltage divider principle, where the position of a movable contact (called a wiper) along a resistive element determines the output voltage.
+Composé de :</p>
+<ul>
+<li>Un élément résistant : un matériau avec une résistance uniforme sur sa longueur (carbone, conducteur, bobine)</li>
+<li>Mobile :Un élément qui se déplace : en slidant ou en pivotant</li>
+<li>Terminaux :
+<ul>
+<li>Deux terminaux fixes (+ et -)</li>
+<li>Un variable pour la sortie</li>
+</ul>
+</li>
+</ul>
+<p>Le principe de base est le suivant :</p>
+<ul>
+<li>Un voltage fixe est appliqué aux deux bornes de la résistance</li>
+<li>L'élément mobile se déplace le long de la piste de résistance, divisant le voltage en fonction de sa position</li>
+<li>Le voltage de sortie de l'élément mobile varie de manière linéaire (ou pas, selon le design) : linéaire, log, anti-log ..</li>
+</ul>
+<h2 id="capteurs-de-force-et-de-pression">Capteurs de force et de pression</h2>
+<p>Un capteur de force est un dispositif utilisé pour mesurer la force appliquée sur un objet ou une surface. Il convertit la force mécanique en un signal électrique proportionnel, qui peut être mesuré, enregistré et traité pour diverses applications. Ces capteurs sont utilisés pour détecter des forces de compression, de traction, de torsion ou de flexion et sont essentiels dans de nombreux systèmes de mesure et de contrôle industriels, médicaux et scientifiques.</p>
+<p>Les capteurs de force peuvent être utilisés dans des applications comme la surveillance de la pression, la détection de chocs, les tests de matériaux, ou dans des dispositifs comme les balances et les systèmes de contrôle robotique.</p>
+<ul>
+<li>Capteurs à jauge de contrainte (Strain Gauges) :
+<ul>
+<li>Utilisation de jauges de contrainte qui mesurent la déformation d'un matériau lorsqu'une force est appliquée. Ici la déformation change la résistance électrique de la jauge, ce qui permet de mesurer la force</li>
+</ul>
+</li>
+<li>Capteurs piezoélectriques :
+<ul>
+<li>Utilisent des matériaux piézoélectriques qui génèrent une charge électrique lorsqu'une force ou une pression est appliquée. Ces capteurs mesurent la déformation du matériau en réponse à une force.</li>
+</ul>
+</li>
+<li>Capteurs de pression (capteurs de force à pression  ou FSR) :
+<ul>
+<li>Ces capteurs mesurent la pression exercée sur une surface par une force. Ils utilisent souvent des membranes flexibles ou des diaphragmes qui se déforment sous l'effet d'une force.</li>
+</ul>
+</li>
+<li>Capteurs de force capacitif
+<ul>
+<li>Utilisent un changement dans la capacité d'un condensateur lorsque la distance entre deux électrodes change sous l'effet d'une force. Ce changement de capacité est proportionnel à la force appliquée.</li>
+<li>Utilisés pour des mesures très précises (faible variation de force)</li>
+</ul>
+</li>
+<li>Capteurs à bascule (Bending beam sensors) :
+<ul>
+<li>Mesurent la déformation d'un matériau ou d'une poutre sous l'effet d'une force appliquée. La déformation entraîne un changement dans la résistance ou la position d'un élément de mesure (souvent un capteur de jauge de contrainte intégré).</li>
+</ul>
+</li>
+</ul>
+<h2 id="capteurs-à-jauge">Capteurs à jauge</h2>
+<p>Un capteur à jauge de contrainte (ou strain gauge) est un dispositif utilisé pour mesurer les déformations mécaniques (ou &quot;contrainte&quot;) dans un objet ou une structure. Il fonctionne en mesurant les changements de résistance électrique d'un matériau qui subit une déformation sous l'effet d'une force ou d'une pression. Ces capteurs sont largement utilisés pour quantifier des forces, des pressions ou des poids par la déformation d'un objet.</p>
+<p>Les jauges de contrainte sont basées sur le fait que la résistance d'un matériau conducteur (souvent un fil métallique ou une couche de matériau sensible) varie lorsque le matériau est étiré ou comprimé. Lorsqu'une force est appliquée à l'objet auquel la jauge est fixée, cette déformation entraîne un changement de la longueur et donc de la résistance de la jauge. Le changement de résistance est mesuré et utilisé pour calculer la force ou la contrainte appliquée.</p>
+<ul>
+<li>Jauges de contrainte à résistance métallique
+<ul>
+<li>Elles utilisent un fil métallique ou une grille de métal (souvent en alliage) disposée sur un substrat flexible. Lorsqu'une force est appliquée, la déformation du substrat modifie la résistance du fil métallique.</li>
+</ul>
+</li>
+<li>Jauges de contrainte à film mince
+<ul>
+<li>Utilisent une fine couche de matériau conducteur (souvent une fine couche de métal ou de polymère) déposée sur un substrat rigide. La déformation du substrat affecte la résistance de cette couche mince.</li>
+</ul>
+</li>
+<li>Jauges de contrainte à effet piézoélectrique :
+<ul>
+<li>Ces jauges fonctionnent en utilisant des matériaux piézoélectriques qui génèrent une charge électrique lorsqu'ils sont soumis à une déformation. Elles sont souvent utilisées pour mesurer les forces dynamiques et les vibrations.</li>
+</ul>
+</li>
+</ul>
+<h3 id="utilisations-">Utilisations :</h3>
+<ul>
+<li>Pesée et mesure de force : Balances industrielles, vérification de charges, systèmes de pesée de véhicules, machines de test de matériaux.</li>
+<li>Contrôle et surveillance de structures : Surveillance des ponts, bâtiments, et autres infrastructures pour détecter des déformations ou des contraintes anormales.</li>
+<li>Test de matériaux : Mesure de la # Théorie des capteurs</li>
+</ul>
+<h2 id="passifs-1">Passifs</h2>
+<p>Un capteur passif ne génère pas en lui-même de signal électrique.
+Cette définition inclut des capteurs qui ne sont pas nécessairement électroniques</p>
+<p>Dans leurs caractéristiques on note :
+- Absence d'énergie active : pas d'apport énergétique externe
+- Pas nécessairement électronique : capteur mécanique par exemple ou d'une autre nature (thermomètre)</p>
+<h2 id="actifs-1">Actifs</h2>
+<p>Le capteur actif nécessite une alimentation pour fonctionner. Il génère un signal mesurable qui est souvent amplifié, conditionné ou traité avant de fournir une sortie. Ce type de capteur peut transformer l’énergie externe en une forme de signal, souvent plus puissant, ce qui lui permet de produire une réponse plus précise ou plus forte que les capteurs passifs.</p>
+<p>Dans leurs caractéristiques :
+- Alim externe nécessaire
+- Amplificaton ou traitement interne (signal souvent amplifié ou traité dans le capteur)</p>
+<h2 id="actionneurs-1">Actionneurs</h2>
+<p>A l'inverse, l'actionneur permet de traduire une énergie électrique (ou autre) en une action mécanique ou physique.
+Le signal d'entrée est un <strong>signal de commande</strong>. C'est le cas de moteurs (servomoteurs, moteurs DC, cylindres hydrauliques, actionneurs piezoélectriques comme les têtes de lectures).</p>
+<h1 id="étude-des-composants-et-capteurs-1">Étude des composants et capteurs</h1>
+<h2 id="sensoriels-1">Sensoriels</h2>
+<ul>
+<li>
+<p>Capteurs de lumière</p>
+<ul>
+<li>Photorésistance (LDR)
+<ul>
+<li>Principe : conductivité de lumière, la résistance diminue à mesure que l'intensité lumineuse augmente</li>
+<li>Application : Vactrol par exemple</li>
+</ul>
+</li>
+<li>Photodiode &amp; phototransistors : convertit la lumière en courant ou en voltage
+<ul>
+<li>Application : détection de lumière</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de températures</p>
+<ul>
+<li>Thermistance : la résistance change avec la température
+<ul>
+<li>Principe: la température fait varier le coefficient de résistance</li>
+<li>Application : Protection de la surchauffe dans des amplis, compensation de température (en captant la température d'un autre composant, cette résistance permet d'ajuster le voltage)</li>
+</ul>
+</li>
+<li>Résistance à détection de température (RTD - resistance temperature detector) : plus précis et stable</li>
+<li>Thermocouple : génère un voltage proportionnel à la différence de température
+<ul>
+<li>application : détection de haute température dans des applications industrielles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de proximité et de mouvement</p>
+<ul>
+<li>Capteurs capacitifs : détecte la variation de capacitance causée par la proximité d'objets
+<ul>
+<li>Application : contrôle gestuel</li>
+</ul>
+</li>
+<li>Capteurs ultrasons : émet et détect des ondes ultrasons pour mesurer la distance
+<ul>
+<li>Application : robotique, radar</li>
+</ul>
+</li>
+<li>Capteurs Infrarouge: 	Détecte les radiations infrarouge pour la proximité ou le mouvement
+<ul>
+<li>Application : déclenchement sans contact</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs de son</p>
+<ul>
+<li>Microphone
+<ul>
+<li>Dynamique</li>
+<li>Statique</li>
+<li>Electret</li>
+</ul>
+</li>
+<li>Capteur Piezoelectric  : détecte les vibrations du son via un effet piezzoélectrique</li>
+</ul>
+</li>
+<li>
+<p>Capteurs chimiques :</p>
+<ul>
+<li>Capteur de Gaz : détecte des gaz spécifiques comme le CO2, méthane, oxygène (...)
+<ul>
+<li>Application : analyse de respiration, qualité de l'air, détecteur de fumée (...)</li>
+</ul>
+</li>
+<li>Capteur de pH : mesure l'acidité, l'alcalinité dans des solutions
+<ul>
+<li>qualité de l'eau</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Capteurs magnétiques</p>
+<ul>
+<li>Hall effect sensors : mesure l'intensité des champs magnétiques
+<ul>
+<li>application : position de la bande magnétique, encodeurs rotatifs(...)</li>
+</ul>
+</li>
+<li>Pickup</li>
+</ul>
+</li>
+</ul>
+<h2 id="potentiométriques-1">Potentiométriques</h2>
+<p>A potentiometric sensor is a type of position sensor that measures displacement, movement, or position by changing its electrical resistance in response to physical input. The sensor operates on the voltage divider principle, where the position of a movable contact (called a wiper) along a resistive element determines the output voltage.
+Composé de :</p>
+<ul>
+<li>Un élément résistant : un matériau avec une résistance uniforme sur sa longueur (carbone, conducteur, bobine)</li>
+<li>Mobile :Un élément qui se déplace : en slidant ou en pivotant</li>
+<li>Terminaux :
+<ul>
+<li>Deux terminaux fixes (+ et -)</li>
+<li>Un variable pour la sortie</li>
+</ul>
+</li>
+</ul>
+<p>Le principe de base est le suivant :</p>
+<ul>
+<li>Un voltage fixe est appliqué aux deux bornes de la résistance</li>
+<li>L'élément mobile se déplace le long de la piste de résistance, divisant le voltage en fonction de sa position</li>
+<li>Le voltage de sortie de l'élément mobile varie de manière linéaire (ou pas, selon le design) : linéaire, log, anti-log ..</li>
+</ul>
+<h2 id="capteurs-de-force-et-de-pression-1">Capteurs de force et de pression</h2>
+<p>Un capteur de force est un dispositif utilisé pour mesurer la force appliquée sur un objet ou une surface. Il convertit la force mécanique en un signal électrique proportionnel, qui peut être mesuré, enregistré et traité pour diverses applications. Ces capteurs sont utilisés pour détecter des forces de compression, de traction, de torsion ou de flexion et sont essentiels dans de nombreux systèmes de mesure et de contrôle industriels, médicaux et scientifiques.</p>
+<p>Les capteurs de force peuvent être utilisés dans des applications comme la surveillance de la pression, la détection de chocs, les tests de matériaux, ou dans des dispositifs comme les balances et les systèmes de contrôle robotique.</p>
+<ul>
+<li>Capteurs à jauge de contrainte (Strain Gauges) :
+<ul>
+<li>Utilisation de jauges de contrainte qui mesurent la déformation d'un matériau lorsqu'une force est appliquée. Ici la déformation change la résistance électrique de la jauge, ce qui permet de mesurer la force</li>
+</ul>
+</li>
+<li>Capteurs piezoélectriques :
+<ul>
+<li>Utilisent des matériaux piézoélectriques qui génèrent une charge électrique lorsqu'une force ou une pression est appliquée. Ces capteurs mesurent la déformation du matériau en réponse à une force.</li>
+</ul>
+</li>
+<li>Capteurs de pression (capteurs de force à pression  ou FSR) :
+<ul>
+<li>Ces capteurs mesurent la pression exercée sur une surface par une force. Ils utilisent souvent des membranes flexibles ou des diaphragmes qui se déforment sous l'effet d'une force.</li>
+</ul>
+</li>
+<li>Capteurs de force capacitif
+<ul>
+<li>Utilisent un changement dans la capacité d'un condensateur lorsque la distance entre deux électrodes change sous l'effet d'une force. Ce changement de capacité est proportionnel à la force appliquée.</li>
+<li>Utilisés pour des mesures très précises (faible variation de force)</li>
+</ul>
+</li>
+<li>Capteurs à bascule (Bending beam sensors) :
+<ul>
+<li>Mesurent la déformation d'un matériau ou d'une poutre sous l'effet d'une force appliquée. La déformation entraîne un changement dans la résistance ou la position d'un élément de mesure (souvent un capteur de jauge de contrainte intégré).</li>
+</ul>
+</li>
+</ul>
+<h2 id="capteurs-à-jauge-1">Capteurs à jauge</h2>
+<p>Un capteur à jauge de contrainte (ou strain gauge) est un dispositif utilisé pour mesurer les déformations mécaniques (ou &quot;contrainte&quot;) dans un objet ou une structure. Il fonctionne en mesurant les changements de résistance électrique d'un matériau qui subit une déformation sous l'effet d'une force ou d'une pression. Ces capteurs sont largement utilisés pour quantifier des forces, des pressions ou des poids par la déformation d'un objet.</p>
+<p>Les jauges de contrainte sont basées sur le fait que la résistance d'un matériau conducteur (souvent un fil métallique ou une couche de matériau sensible) varie lorsque le matériau est étiré ou comprimé. Lorsqu'une force est appliquée à l'objet auquel la jauge est fixée, cette déformation entraîne un changement de la longueur et donc de la résistance de la jauge. Le changement de résistance est mesuré et utilisé pour calculer la force ou la contrainte appliquée.</p>
+<ul>
+<li>Jauges de contrainte à résistance métallique
+<ul>
+<li>Elles utilisent un fil métallique ou une grille de métal (souvent en alliage) disposée sur un substrat flexible. Lorsqu'une force est appliquée, la déformation du substrat modifie la résistance du fil métallique.</li>
+</ul>
+</li>
+<li>Jauges de contrainte à film mince
+<ul>
+<li>Utilisent une fine couche de matériau conducteur (souvent une fine couche de métal ou de polymère) déposée sur un substrat rigide. La déformation du substrat affecte la résistance de cette couche mince.</li>
+</ul>
+</li>
+<li>Jauges de contrainte à effet piézoélectrique :
+<ul>
+<li>Ces jauges fonctionnent en utilisant des matériaux piézoélectriques qui génèrent une charge électrique lorsqu'ils sont soumis à une déformation. Elles sont souvent utilisées pour mesurer les forces dynamiques et les vibrations.</li>
+</ul>
+</li>
+</ul>
+<h3 id="utilisations--1">Utilisations :</h3>
+<ul>
+<li>Pesée et mesure de force : Balances industrielles, vérification de charges, systèmes de pesée de véhicules, machines de test de matériaux.</li>
+<li>Contrôle et surveillance de structures : Surveillance des ponts, bâtiments, et autres infrastructures pour détecter des déformations ou des contraintes anormales.</li>
+<li>Test de matériaux : Mesure de la résistance des matériaux en laboratoire ou dans des processus de fabrication.</li>
+<li>Électronique et microélectronique : Utilisation dans des dispositifs à haute précision comme les capteurs de pression, les systèmes de surveillance de la santé.</li>
+<li>Automobile : Surveillance de la pression des pneus, analyse des forces dans les châssis, contrôle des systèmes de sécurité (ex. : systèmes de détection de collision).ésistance des matériaux en laboratoire ou dans des processus de fabrication.</li>
+<li>Électronique et microélectronique : Utilisation dans des dispositifs à haute précision comme les capteurs de pression, les systèmes de surveillance de la santé.</li>
+<li>Automobile : Surveillance de la pression des pneus, analyse des forces dans les châssis, contrôle des systèmes de sécurité (ex. : systèmes de détection de collision).</li>
+</ul>
+<h4 id="quelques-circuits-impliquant-des-capteurs-">Quelques circuits impliquant des capteurs :</h4>
+<p><img src="file:////home/johann/Documents/Electroacoustique/dsp_theory/COURS/assets/photodiode-mode-circuits-1.png" alt="Photodiode" title="Photodiode"></p>
+
+            
+            
+        </body>
+        </html>
