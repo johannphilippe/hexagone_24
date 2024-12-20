@@ -194,6 +194,22 @@ M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 <li>Implémentez le filtrage</li>
 <li>Décryptez votre message à l'aide des fréquences connues</li>
 </ul>
+<h2 id="décrypteur">Décrypteur</h2>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">decrypt</span>(<span class="hljs-params">encrypted_message, key</span>):
+    alphabet = string.ascii_lowercase
+    decrypted_message = []
+    key_sum = <span class="hljs-built_in">sum</span>(key)
+
+    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> encrypted_message:
+        <span class="hljs-keyword">if</span> char <span class="hljs-keyword">in</span> alphabet:
+            index = alphabet.index(char)
+            new_index = (index - <span class="hljs-built_in">int</span>(key_sum)) % <span class="hljs-number">26</span>
+            decrypted_message.append(alphabet[new_index])
+        <span class="hljs-keyword">else</span>:
+            decrypted_message.append(char)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(decrypted_message)
+</code></pre>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             
