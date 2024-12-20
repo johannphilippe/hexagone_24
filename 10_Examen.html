@@ -210,6 +210,23 @@ M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">â
 
     <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(decrypted_message)
 </code></pre>
+<h3 id="rms">RMS</h3>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">rms</span>(<span class="hljs-params">sig, N</span>):
+    mem = np.zeros(N)
+    L = <span class="hljs-built_in">len</span>(sig)
+    output = np.zeros(L)
+    index = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(L):
+        mem[index] = sig[n]
+        index = (index + <span class="hljs-number">1</span>) % N
+        s = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> nn <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(N):
+            s += mem[nn]**<span class="hljs-number">2</span>
+        s /= N
+        output[n] = np.sqrt(s)
+
+    <span class="hljs-keyword">return</span> output
+</code></pre>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             
